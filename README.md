@@ -11,3 +11,8 @@ pip install Flask
 pip install flaskwebgui
 pip install pytube
 ```
+
+### Run Program
+```
+python3 main.py
+```

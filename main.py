@@ -26,13 +26,19 @@ def download_vid():
         youtube_object = youtube_object.streams.get_highest_resolution()
         
         try:
-            youtube_object.download()
+            youtube_object.download('static')
         except:
             error = "Something went wrong.  Please check the link and try again."
             return render_template("downloadVideo.html", error=error)
 
         message = "Your video was downloaded!"
-        return render_template("homepage.html", message=message)
+        return render_template("downloadVideo.html", message=message)
+
+
+@app.route("/view_video")
+def view_vid():
+    return render_template("viewVideo.html")
+
 
 if __name__ == "__main__":
 
