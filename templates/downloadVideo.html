@@ -1,0 +1,34 @@
+{% extends "base.html" %}
+
+{% block title %}
+    Download Video
+{% endblock %}
+
+{% block header %}
+  <h1>Download Video</h1>
+{% endblock %}
+
+{% block content %}
+    <div>
+        <p>
+            Enter your YouTube link below to download the video. <br>
+        </p>
+    </div>
+    <div>
+        <form action="/download_video" method="post">
+            <input type="text" name="youtube_link" id="youtube_link" placeholder="Copy & paste the YouTube link here.." required> <br>
+            <p><b>
+                The download may take some time depending on the file size so just click the download button once.
+            </b></p><br>
+            <button type="submit">Download Video</button>
+            <br>
+        </form>
+    </div>
+    {% if error %}
+        <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    {% if message %}
+        <p style="color: green;">{{ message }}</p>
+    {% endif %}
+{% endblock %}
