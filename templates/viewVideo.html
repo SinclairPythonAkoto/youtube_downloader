@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
 {% block title %}
-    Video Videos
+    View Videos
 {% endblock %}
 
 {% block header %}
@@ -11,14 +11,15 @@
 {% block content %}
     <div>
         <p>
-            Scroll through your downloads to view your video.
+            Scroll through your downloads to view your videos.
         </p><br>
     </div>
     <div>
-        <video width="100%" height="240" controls>
-            <source src="/static/Tom & Jerry  Catch the Turkey!  @WB Kids.mp4" type="video/mp4">
-            <!-- <source src="movie.ogg" type="video/ogg"> -->
-            Your browser does not support the video tag.
-        </video>
+    {% for mp4_vid in files %}
+    <video width="100%" height="240" controls>
+        <source src="{{ mp4_vid }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    {% endfor %}
     </div>
 {% endblock %}

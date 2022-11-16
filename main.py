@@ -1,3 +1,4 @@
+import os
 from flask import Flask
 from flaskwebgui import FlaskUI
 from pytube import YouTube
@@ -37,7 +38,19 @@ def download_vid():
 
 @app.route("/view_video")
 def view_vid():
-    return render_template("viewVideo.html")
+    # directory = os.fsencode("static/")
+    # for file in os.listdir(directory):
+    #     filename = os.fsencode(file)
+    #     if filename.endswith(tuple(".mp4")):
+    #         vid = os.path.join(directory, filename)
+    #         print(vid)
+    import glob
+    import os.path
+    dir = 'static/'
+    files = glob.glob(os.path.join(dir, "*mp4"))
+    print(files)
+
+    return render_template("viewVideo.html", files=files)
 
 
 if __name__ == "__main__":
